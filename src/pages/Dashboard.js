@@ -52,40 +52,36 @@ export default function Dashboard({ todoList: initTodoList }) {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-10 col-md-8 mx-auto mt-4">
-          <h2 className="text-capitalize text-center">My To-Do List</h2>
-          <ul className="list-group rounded-4 outline my-5">
-            <div className="list-group-item d-flex border border-dark">
-              <Textfield
-                className="flex-grow-1"
-                type="text"
-                icon={<i className="bi bi-search"></i>}
-                value={search}
-                placeholder="Search"
-                maxLength="25"
-                rounded
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <button
-                className="btn btn-primary ms-3"
-                onClick={() => setEditItem({ id: null, title: "" })}
-              >
-                New
-              </button>
-            </div>
-            <TodoList
-              filteredList={filteredList}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
-              editItem={editItem}
-              handleSave={handleSave}
-              handleCancel={handleEditCancel}
-            />
-          </ul>
+    <div className="container col-10 mx-auto mt-4">
+      <h2 className="text-capitalize text-center">My To-Do List</h2>
+      <ul className="list-group rounded-4 outline my-5">
+        <div className="list-group-item d-flex border border-dark">
+          <Textfield
+            className="flex-grow-1"
+            type="text"
+            icon={<i className="bi bi-search"></i>}
+            value={search}
+            placeholder="Search"
+            maxLength="25"
+            rounded
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button
+            className="btn btn-primary ms-3"
+            onClick={() => setEditItem({ id: null, title: "" })}
+          >
+            New
+          </button>
         </div>
-      </div>
+        <TodoList
+          filteredList={filteredList}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+          editItem={editItem}
+          handleSave={handleSave}
+          handleCancel={handleEditCancel}
+        />
+      </ul>
     </div>
   );
 }

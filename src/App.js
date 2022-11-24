@@ -15,7 +15,7 @@ export default function App() {
     setAuth({ token, user, todoList });
   };
 
-  const onLogOut = (e) => {
+  const onLogOut = () => {
     setAuth({
       token: "",
       user: {},
@@ -23,7 +23,7 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div className="container">
       {auth.token && (
         <div className="d-flex flex-row justify-content-end">
           <a
@@ -36,13 +36,11 @@ export default function App() {
           </a>
         </div>
       )}
-      <div className="container">
-        {auth.token ? (
-          <Dashboard todoList={auth.todoList} />
-        ) : (
-          <LoginForm onLoginSuccess={onLoginSuccess} />
-        )}
-      </div>
+      {auth.token ? (
+        <Dashboard todoList={auth.todoList} />
+      ) : (
+        <LoginForm onLoginSuccess={onLoginSuccess} />
+      )}
     </div>
   );
 }
